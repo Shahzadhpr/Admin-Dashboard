@@ -1,30 +1,26 @@
 import { createBrowserRouter, Outlet } from "react-router";
 import Home from "./pages/Home/Home"
-import Product from "./pages/Products/Products"
+import Products from "./pages/Products/Products"
 import Tickets from "./pages/Tickets/Tickets"
 import TicketsDetails from "./pages/TicketsDetails/TicketsDetails"
 import Users from "./pages/Users/Users"
 import Comments from "./pages/Comments/Comments"
 import NotFound from "./pages/NotFound/NotFound"
-import clsx from "clsx";
+import DashboardLayout from "./components/Layout/dashboardLayout"
+
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: (
-            <div className={clsx("text-3xl", "text-center", "text-cyan-900", "m-3")}>
-                Layout
-                <Outlet/>
-            </div>
-        ),
+        element: <DashboardLayout/>,
         children : [
             {
                 index: true,
                 element: <Home/>
             },
             {
-                path: "/Product",
-                element: <Product/>
+                path: "/Products",
+                element: <Products/>
             },
             {
                 path: "/Users",
@@ -43,11 +39,12 @@ const router = createBrowserRouter([
                 element: <TicketsDetails/>
             },
             {
-                path: "/*",
+                path: "*",
                 element: <NotFound/>
             },
         ]
     },
 ])
+
 
 export default router
