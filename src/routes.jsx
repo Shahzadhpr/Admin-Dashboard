@@ -6,15 +6,16 @@ import TicketsDetails from "./pages/TicketsDetails/TicketsDetails"
 import Users from "./pages/Users/Users"
 import Comments from "./pages/Comments/Comments"
 import NotFound from "./pages/NotFound/NotFound"
+import clsx from "clsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: (
-            <>
+            <div className={clsx("text-3xl", "text-center", "text-cyan-900", "m-3")}>
                 Layout
                 <Outlet/>
-            </>
+            </div>
         ),
         children : [
             {
