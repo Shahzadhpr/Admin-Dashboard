@@ -32,7 +32,26 @@ function DetailsCharts() {
 
             <XAxis dataKey="title" />
             <YAxis tickMargin={10}/>
-            <Tooltip />
+
+            <Tooltip
+              content={({ active, payload }) => {
+                if (!active || !payload?.length) return null;
+              
+                const { title, value } = payload[0].payload;
+              
+                return (
+                  <div className="bg-white border primary-border-color rounded-lg px-4 py-3 shadow-lg">
+                    <p className="font-IRANSansX text-sm text-zinc-700">
+                      {title}:{" "}
+                      <span className="font-bold text-zinc-900">
+                        {value}
+                      </span>
+                    </p>
+                  </div>
+                );
+              }}
+          />
+
           </BarChart>
         </ResponsiveContainer>
       </div>
