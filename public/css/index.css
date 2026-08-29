@@ -4,6 +4,10 @@
   --font-IRANSansX: "IRANSansX";
 }
 
+@utility container{
+  @apply my-0 my-auto p-2.5;
+}
+
 @utility primary-border-color {
   @apply border-zinc-200;
 }

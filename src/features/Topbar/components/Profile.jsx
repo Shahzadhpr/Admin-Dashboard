@@ -3,7 +3,7 @@ import { AVATAR_URL } from "../../../data/constants";
 function Profile() {
   return (
     <div
-      tabindex="1"
+      tabIndex="1"
       className="flex focus-within:ring-2 focus-within:ring-black/20 cursor-pointer items-center gap-2 select-none p-3 hover:bg-black/5 rounded-md duration-150">
       <div className="size-10">
         <img
