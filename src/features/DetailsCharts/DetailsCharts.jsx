@@ -11,7 +11,7 @@ function DetailsCharts() {
     });
 
     return (
-      <div className="bg-white rounded-xl border-2 primary-border-color py-6 pr-10 pl-4">
+      <div className="bg-white rounded-xl border-2 primary-border-color py-6 pr-10 pl-4 my-20">
       <p className="font-IRANSansX text-zinc-900 font-bold text-lg">
         آمار کلی داشبورد
       </p>

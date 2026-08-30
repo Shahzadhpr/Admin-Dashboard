@@ -10,7 +10,7 @@ function Summaries() {
   });
 
   return (
-    <div className="grid gap-3 my-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+    <div className="grid gap-3 mt-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
       {summaries.map((summary) => (
         <SummaryCart key={summary.id} {...summary} />
       ))}
