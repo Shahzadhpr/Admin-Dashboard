@@ -12,8 +12,12 @@ import {products} from "../../data/products"
 import { Link } from "react-router"
 import { MdOpenInNew } from "react-icons/md"
 import clsx from "clsx"
+import { useState } from "react"
 
 function ProductsTable() {
+
+  const[lastproduct, setLastproduct] = useState([...products])
+ 
   const Button = () => {
     return (
       <Link
@@ -26,6 +30,12 @@ function ProductsTable() {
     );
   };
 
+  const removeModal = (id) => {
+    const newProduct = lastproduct.filter(product => product.id !== id)
+    setLastproduct(newProduct)
+  }
+
+
   return (
     <div className="mb-20">
       <Table header={{ title: "لیست محصولات", Buttons: Button }}>
@@ -36,26 +46,26 @@ function ProductsTable() {
         </TableHead>
 
         <TableBody>
-          {products.map((item) => (
-            <TableRow key={item.id}>
-              <Tablecell>{item.id}</Tablecell>  {/* {item.id.slice(0,10)}... */}
-              <Tablecell>{item.title}</Tablecell>
+          {lastproduct.map((product) => (
+            <TableRow key={product.id}>
+              <Tablecell>{product.id}</Tablecell>  {/* {item.id.slice(0,10)}... */}
+              <Tablecell>{product.title}</Tablecell>
 
               <Tablecell>
-                <p className={clsx(item.isPublished ? "success-badge" : "danger-badge", "badge")}>
-                    {item.isPublished ? "فعال" : "غیرفعال"}
+                <p className={clsx(product.isPublished ? "success-badge" : "danger-badge", "badge")}>
+                    {product.isPublished ? "فعال" : "غیرفعال"}
                 </p>
               </Tablecell>
 
               <Tablecell>
-                <p>{item.price.toLocaleString()} تومان</p>
+                <p>{product.price.toLocaleString()} تومان</p>
               </Tablecell>
 
               <Tablecell>
                 <div className="flex items-center gap-2">
-                  <RemoveIcon/>
-                  <ChangeVisibilityIcon/>
-                  <EditIcon/>
+                  <RemoveIcon product={product} handler={removeModal}/>
+                  <ChangeVisibilityIcon product={product}/>
+                  <EditIcon product={product}/>
                 </div>
               </Tablecell>
             </TableRow>
