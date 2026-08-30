@@ -4,6 +4,9 @@ import TableHeadCell from "../../components/common/Table/components/TableHeadCel
 import TableBody from "../../components/common/Table/components/TableBody"
 import TableRow from "../../components/common/Table/components/TableRow"
 import Tablecell from "../../components/common/Table/components/Tablecell"
+import RemoveIcon from "./components/RemoveIcon"
+import ChangeVisibilityIcon from "./components/ChangeVisibilityIcon"
+import EditIcon from "./components/EditIcon"
 import {productsTableHeadRow} from "../../data/products" 
 import {products} from "../../data/products" 
 import { Link } from "react-router"
@@ -48,7 +51,13 @@ function ProductsTable() {
                 <p>{item.price.toLocaleString()} تومان</p>
               </Tablecell>
 
-              <Tablecell>{item.entity}</Tablecell>
+              <Tablecell>
+                <div className="flex items-center gap-2">
+                  <RemoveIcon/>
+                  <ChangeVisibilityIcon/>
+                  <EditIcon/>
+                </div>
+              </Tablecell>
             </TableRow>
           ))}
         </TableBody>

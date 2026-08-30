@@ -3,7 +3,7 @@ export const productsTableHeadRow = [
   "عنوان محصول",
   "وضعیت نمایش",
   "قیمت",
-  "موجودی",
+  "",
 ];
 
 const STATIC_DESCRIPTION =
