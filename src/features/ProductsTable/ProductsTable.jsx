@@ -35,6 +35,14 @@ function ProductsTable() {
     setLastproduct(newProduct)
   }
 
+  const changeVisibillity = (id) => {
+    const newProduct = lastproduct.map(product => {
+      return product.id === id ? {...product, isPublished: !product.isPublished} : {...product}
+    })
+
+    setLastproduct(newProduct)
+
+  }
 
   return (
     <div className="mb-20">
@@ -64,7 +72,7 @@ function ProductsTable() {
               <Tablecell>
                 <div className="flex items-center gap-2">
                   <RemoveIcon product={product} handler={removeModal}/>
-                  <ChangeVisibilityIcon product={product}/>
+                  <ChangeVisibilityIcon product={product} handler={changeVisibillity}/>
                   <EditIcon product={product}/>
                 </div>
               </Tablecell>
