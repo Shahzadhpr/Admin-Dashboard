@@ -1,6 +1,6 @@
-function TableBody() {
+function TableBody({children}) {
   return (
-    <div>TableBody</div>
+    <div className="*:flex *:shrink">{children}</div>
   )
 }
 

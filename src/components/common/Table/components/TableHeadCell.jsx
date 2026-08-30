@@ -1,6 +1,6 @@
-function TableHeadCell() {
+function TableHeadCell({children }) {
   return (
-    <div>TableHeadCell</div>
+    <div>{children}</div>
   )
 }
 

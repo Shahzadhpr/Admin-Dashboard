@@ -1,6 +1,6 @@
-function Tablecell() {
+function Tablecell({children}) {
   return (
-    <div>Tablecell</div>
+    <div className="line-clamp-1">{children}</div>
   )
 }
 
