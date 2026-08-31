@@ -3,8 +3,8 @@ import SummaryCart from "./components/SummaryCart";
 
 function Summaries() {
   const summaries = generateSummaries({
-    productsLength: 4,
-    usersLength: 12,
+    productsLength: 49,
+    usersLength: 374,
     ticketsLength: 80,
     adminsLength: 3,
   });
