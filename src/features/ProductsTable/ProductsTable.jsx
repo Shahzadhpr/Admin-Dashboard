@@ -48,7 +48,7 @@ function ProductsTable() {
     <div className="mb-20">
       <Table 
       header={{ title: "لیست محصولات", Buttons: Button }} 
-      pagination={{item: products, setItem: setLastproduct, itemPerPages: 4}}>
+      pagination={{item: products, setItem: setLastproduct, itemPerPages: 6}}>
 
         <TableHead>
           {productsTableHeadRow.map((item, index) => (

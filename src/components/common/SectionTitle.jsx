@@ -1,15 +1,17 @@
-function SectionTitle({ Title, Button }) {
+function SectionTitle({ Title, Button, className = "text-2xl" }) {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex items-center justify-between">
       <div>
-        <h2 className="font-bold text-zinc-900 text-2xl font-IRANSansX">
+        <h2 className={`font-bold text-zinc-900 font-IRANSansX ${className}`}>
           {Title}
         </h2>
       </div>
 
-      <div className="flex items-center gap-3">
-        <Button />
-      </div>
+      {Button && (
+        <div className="flex items-center gap-3">
+          <Button />
+        </div>
+      )}
     </div>
   );
 }

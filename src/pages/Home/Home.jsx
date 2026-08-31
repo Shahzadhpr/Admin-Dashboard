@@ -4,6 +4,7 @@ import SectionTitle from "../../components/common/SectionTitle";
 import Summaries from "../../features/Summaries/Summaries";
 import DetailsCharts from "../../features/DetailsCharts/DetailsCharts";
 import ProductsTable from "../../features/ProductsTable/ProductsTable";
+import QuickOverview from "../../features/QuickOverview/QuickOverview";
 
 function Home() {
   const [isRedirecting, setIsRedirecting] = useState(false);
@@ -38,7 +39,7 @@ function Home() {
       <div>
         <DetailsCharts/>
         <ProductsTable/>
-        {/* <QuickOverview/> */}
+        <QuickOverview/>
       </div>
     </div>
   );

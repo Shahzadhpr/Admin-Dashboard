@@ -89,3 +89,7 @@ body {
         background: red;
         border-radius: 1px;
  }
+
+::selection {
+  @apply bg-zinc-200 text-zinc-900;
+}
