@@ -3,10 +3,12 @@ import SectionTitle from "../../components/common/SectionTitle"
 import { useState } from "react"
 import ProductsTableView from "../../features/ProductsTableView/ProductsTableView"
 import ProductsGridVie from "../../features/ProductsGridView/ProductsGridView"
+import { products } from "../../data/products"
 
 function Products() {
 
   const [layoutType, setLayoutType] = useState("TABEL") //GRID
+  const [paginationProduct, setPaginationProduct] = useState([...products])
 
   const toggelLayout = () => {
     const layout = layoutType === "TABEL" ? "GRID" : "TABEL"
@@ -30,12 +32,12 @@ function Products() {
     <div className="container">
       <SectionTitle Title="لیست محصولات" Button={Buttons}/>
 
-      <section className="mt-20 w-full! min-w-full!">
+      <section className="mt-12 w-full! min-w-full!">
           {
             layoutType === "TABEL" ? (
-              <ProductsTableView/>
+              <ProductsTableView products={products} paginationProduct={paginationProduct} setProduct={setPaginationProduct}/>
             ) : (
-              <ProductsGridVie/>
+              <ProductsGridVie products={products} paginationProduct={paginationProduct} setProduct={setPaginationProduct}/>
             )
           }
         </section>
