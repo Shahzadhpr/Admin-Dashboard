@@ -10,10 +10,11 @@ import AddPruductFildes from "../../features/ProductsTable/components/AddPruduct
 function Products() {
 
   const [layoutType, setLayoutType] = useState("TABEL") //GRID
-  const [paginationProduct, setPaginationProduct] = useState([...products])
+  const [allProduct, setAllProduct] = useState([...products])
+  const [paginationProduct, setPaginationProduct] = useState([])
 
   const [newProduct, setNewProduct] = useState({
-    id: crypto.randomUUID(),
+    id: Math.floor(Math.random() * 90) + 10,
     title: "",
     description: "",
     img: "/images/product-img.png",
@@ -29,7 +30,17 @@ function Products() {
   }
 
   const creatNewProdut = () => {
-    products.push(newProduct)
+    setAllProduct([...allProduct, newProduct])
+
+    setNewProduct({
+      id: crypto.randomUUID(),
+      title: "",
+      description: "",
+      img: "/images/product-img.png",
+      isPublished: false,
+      price: "",
+      entity: "",
+    })
   }
 
   const Buttons = () => {
@@ -53,9 +64,9 @@ function Products() {
       <section className="mt-12 w-full! min-w-full!">
           {
             layoutType === "TABEL" ? (
-              <ProductsTableView products={products} paginationProduct={paginationProduct} setProduct={setPaginationProduct}/>
+              <ProductsTableView products={allProduct} paginationProduct={paginationProduct} setProduct={setPaginationProduct}/>
             ) : (
-              <ProductsGridVie products={products} paginationProduct={paginationProduct} setProduct={setPaginationProduct}/>
+              <ProductsGridVie products={allProduct} paginationProduct={paginationProduct} setProduct={setPaginationProduct}/>
             )
           }
         </section>

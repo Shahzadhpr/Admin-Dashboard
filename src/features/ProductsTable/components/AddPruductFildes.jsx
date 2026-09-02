@@ -11,7 +11,7 @@ const AddPruductFildes = ({newProduct, onChange}) => {
 
     const product = {
         ...newProduct,
-        [key]: value
+        [key]: key === "price" ? Number(value) : value
     }
     
     onChange(product)
@@ -28,7 +28,6 @@ const AddPruductFildes = ({newProduct, onChange}) => {
         <div
           key={field.key}
           className={field.type === "textarea" ? "md:col-span-2" : ""}
-          onChange={(event) => {onChangeHandler(field.key, event.target.value)}}
         >
           <label className="text-sm font-medium text-zinc-700 select-none">
             {field.label}
@@ -38,6 +37,8 @@ const AddPruductFildes = ({newProduct, onChange}) => {
             <textarea
               placeholder={field.placeholder}
               className={`${inputClass} min-h-[150px] resize-none py-3`}
+              value={newProduct[field.key]}
+              onChange={(event) => {onChangeHandler(field.key, event.target.value)}}
             />
           ) : field.type === "select" ? (
             <select
@@ -52,6 +53,7 @@ const AddPruductFildes = ({newProduct, onChange}) => {
               type={field.type}
               placeholder={field.placeholder}
               className={inputClass}
+              value={newProduct[field.key]}
               onChange={(event) => {onChangeHandler(field.key, event.target.value)}}
             />
           )}

@@ -11,7 +11,7 @@ const Pagination = ({item, setItem, itemPerPages}) => {
     const startIndex = (currentPages - 1) *itemPerPages
     const endIndex = startIndex + itemPerPages  
 
-    const paginatedItem = item.slice(startIndex, endIndex)
+    const paginatedItem = [...item].reverse().slice(startIndex, endIndex)
 
     setItem(paginatedItem)
     

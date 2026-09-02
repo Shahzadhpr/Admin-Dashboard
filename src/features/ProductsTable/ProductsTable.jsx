@@ -59,7 +59,7 @@ function ProductsTable() {
         <TableBody>
           {lastproduct.map((product) => (
             <TableRow key={product.id}>
-              <Tablecell>{product.id}</Tablecell>  {/* {item.id.slice(0,10)}... */}
+              <Tablecell>{product.id}</Tablecell>
               <Tablecell>{product.title}</Tablecell>
 
               <Tablecell>
