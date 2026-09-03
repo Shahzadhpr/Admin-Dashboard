@@ -6,10 +6,14 @@ import ProductsGridVie from "../../features/ProductsGridView/ProductsGridView"
 import { products } from "../../data/products"
 import Modal from "../../components/common/Modal"
 import AddPruductFildes from "../../features/ProductsTable/components/AddPruductFildes"
+import useLocalStorage from "../../hooks/useLocalStorage"
+import useTitle from "../../hooks/useTitle"
 
 function Products() {
 
-  const [layoutType, setLayoutType] = useState("TABEL") //GRID
+  useTitle("محصولات")
+
+  const [layoutType, setLayoutType] = useLocalStorage("Layout", "TABEL") //GRID
   const [allProduct, setAllProduct] = useState([...products])
   const [paginationProduct, setPaginationProduct] = useState([])
 
@@ -25,7 +29,6 @@ function Products() {
 
   const toggelLayout = () => {
     const layout = layoutType === "TABEL" ? "GRID" : "TABEL"
-
     setLayoutType(layout)
   }
 

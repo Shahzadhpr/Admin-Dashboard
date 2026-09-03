@@ -5,14 +5,13 @@ import Summaries from "../../features/Summaries/Summaries";
 import DetailsCharts from "../../features/DetailsCharts/DetailsCharts";
 import ProductsTable from "../../features/ProductsTable/ProductsTable";
 import QuickOverview from "../../features/QuickOverview/QuickOverview";
+import useToggle from "../../hooks/useToggle";
+import useTitle from "../../hooks/useTitle";
 
 function Home() {
-  const [isRedirecting, setIsRedirecting] = useState(false);
+  useTitle("صفحه‌ی اصلی")
+  const [isRedirecting, toggle] = useToggle()
   const navigate = useNavigate();
-
-  const toggle = () => {
-    setIsRedirecting(!isRedirecting);
-  };
 
   const CTAbutton = () => {
     const clickHandler = () => {
